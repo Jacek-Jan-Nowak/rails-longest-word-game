@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>********* Welcome to the longest word-game! *********</h1>
+  <h2>Here is your grid:</h2>
+  <ul class="letters">
+    <% @letters.each do |letter| %>
+      <li><%= letter %></li>
+    <% end %>
+  </ul>
+  <p>*****************************************************</p>
+  <p>What is your longest word?</p>
+
+  <form action="/score" method="POST">
+    <input type="text" id ="word" name="word" placeholder="Type your word!">
+    <input type="submit" value="Submit!">
+    <input id="start_time" name="tags_list" type="hidden" />
+    <input id="end_time" name="tags_list" type="hidden" />
+    <%= hidden_field_tag :letters, @letters %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+
+</div>
